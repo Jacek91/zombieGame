@@ -1,0 +1,96 @@
+
+@font-face {
+  font-family: "nosiferregular";
+  src: url(../fonts/nosifer-regular-webfont.woff2) format("woff2"),
+    url("../fonts/nosifer-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+}
+
+.result {
+  position: absolute;
+  left: 1%;
+  top: 1%;
+  color: greenyellow;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 5px;
+  text-align: center;
+  font-family: nosiferregular, Arial, sans-serif;
+}
+
+.board {
+  height: 100vh;
+  width: 100%;
+  background: url(../images/board-bg.jpg);
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.zombie {
+  cursor: crosshair;
+  width: 200px;
+  height: 312px;
+  background: url(../images/walkingdead.png);
+  position: absolute;
+  left: 110%;
+  bottom: 100px;
+  animation: zombieAnim 0.5s 0s infinite steps(9), zombieWalk 10s 0s 1 linear;
+  cursor: crosshair;
+  animation-play-state: running;
+}
+
+@keyframes zombieAnim {
+  100% {
+    background-position: -1800px 0;
+  }
+}
+
+@keyframes zombieWalk {
+  100% {
+    left: -300px;
+  }
+}
+
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+
+.end {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: greenyellow;
+  font-size: 72px;
+  font-family: nosiferregular, Arial, sans-serif;
+  transition: 2s;
+  display: none;
+  animation: fadein 3s;
+}
+
+.end span {
+  position: relative;
+  margin-top: 20px;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  color: greenyellow;
+  font-size: 28px;
+  font-family: nosiferregular, Arial, sans-serif;
+  display: none;
+  animation: fadein 3s;
+}
+
+.result {
+  animation: fadein 3s; 
+}
