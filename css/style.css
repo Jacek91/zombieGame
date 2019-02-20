@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: "nosiferregular";
   src: url(../fonts/nosifer-regular-webfont.woff2) format("woff2"),
@@ -30,6 +29,8 @@ body {
   background-position: center;
   overflow: hidden;
   position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .zombie {
@@ -43,6 +44,7 @@ body {
   animation: zombieAnim 0.5s 0s infinite steps(9), zombieWalk 10s 0s 1 linear;
   cursor: crosshair;
   animation-play-state: running;
+  transform: scale(0.5)
 }
 
 @keyframes zombieAnim {
@@ -59,10 +61,11 @@ body {
 
 @keyframes fadein {
   from {
-      opacity:0;
+    opacity: 0;
   }
+
   to {
-      opacity:1;
+    opacity: 1;
   }
 }
 
@@ -92,5 +95,23 @@ body {
 }
 
 .result {
-  animation: fadein 3s; 
+  animation: fadein 3s;
+}
+
+@media (max-width: 500px) {
+  .end {
+    font-size: 18px;
+  }
+
+  .end span {
+    padding-top: 25px;
+    font-size: 16px;
+    margin-left: -12px;
+
+  }
+
+  .result {
+    font-size: 18px;
+  }
+
 }

@@ -5,6 +5,7 @@ var result = document.querySelector(".result");
 var board = document.querySelector(".board");
 var endGame = document.querySelector(".end");
 var endGameSpan = document.querySelector(".end span");
+var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
 
 var zombies = [];
 
@@ -13,7 +14,13 @@ function createZombie() {
   zombies.push(zombie);
   zombie.classList.add("zombie");
 
-  var scale = 0.5 + Math.random() * 1;
+  var scale;
+
+  if (isMobile) {
+    scale = 0.5 + Math.random() * 0.4;
+  } else {
+    scale = 0.5 + Math.random() * 1;
+  }
   zombie.style.transform = `scale(${scale})`;
 
   var position = Math.floor(Math.random() * (280 - 50) + 10);
